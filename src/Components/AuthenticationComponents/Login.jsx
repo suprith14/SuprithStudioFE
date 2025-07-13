@@ -40,7 +40,10 @@ const Login = () => {
       const response = await fetch(`/api/login?${queryParams}`, { method: "GET" });
       // const response = await fetch(`http://localhost:3000/login?${queryParams}`, { method: "GET" });
       // const response = await fetch(`https://suprithstudiobe.onrender.com/login?${queryParams}`, { method: "GET" });
+      console.log("response", response);
       const data = await response.json();
+      console.log("login response" + JSON.stringify(response));
+      console.log("data", data);
       if (data.status == 200) {
         // console.log("login successfull :", data)
         alert("Login Successfull " + data.data.name + " " + data.data._id);
