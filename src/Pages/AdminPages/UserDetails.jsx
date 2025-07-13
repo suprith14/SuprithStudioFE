@@ -7,6 +7,8 @@ const UserDetails = () => {
     const Adminuseremail = useSelector((state) => state.user.useremail);
     const AdminUser = "suprithcd14@gmail.com";
     console.log("Admin user email :", !(Adminuseremail == AdminUser))
+        const baseURL = import.meta.env.VITE_API_BASE_URL
+
 
     if (!(Adminuseremail == AdminUser)) {
         return (
@@ -25,7 +27,7 @@ const UserDetails = () => {
 
 
     const fetchAllUser = async () => {
-        const response = await fetch("http://localhost:3000/getalluser", { method: "GET" });
+        const response = await fetch(`${baseURL}/getalluser`, { method: "GET" });
         const data = await response.json();
         console.log("getalluser data :", data.data)
         setData(data.data)
