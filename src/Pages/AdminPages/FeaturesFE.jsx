@@ -49,7 +49,7 @@ const FeaturesFE = () => {
         userID: userIDFE,
         description: newdescription
       };
-      const response = await fetch("http://localhost:3000/featurefelist", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(queryParams) });
+      const response = await fetch(`${baseURL}/featurefelist`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(queryParams) });
       const data = await response.json()
       fetchTechStack();
 
@@ -71,7 +71,7 @@ const FeaturesFE = () => {
     e.preventDefault();
     try {
       const queryParams = new URLSearchParams({ _id: ID }).toString();
-      const response = await fetch(`http://localhost:3000/featurefelist?${queryParams}`, { method: "DELETE" });
+      const response = await fetch(`${baseURL}/featurefelist?${queryParams}`, { method: "DELETE" });
       const result = await response.json();
       const values = result.result;
 

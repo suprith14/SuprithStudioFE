@@ -19,7 +19,7 @@ const TechStack = () => {
   const fetchTechStack = async () => {
     try {
       const queryParams = new URLSearchParams({ userID: userIDFE }).toString();
-      const response = await fetch(`http://localhost:3000/techStack?${queryParams}`, { method: "GET" });
+      const response = await fetch(`${baseURL}/techStack?${queryParams}`, { method: "GET" });
       const result = await response.json();
       const values = result.techStacks;
       setData(values)
@@ -49,7 +49,7 @@ const TechStack = () => {
         teckName: newTech,
         userID: userIDFE,
       };
-      const response = await fetch("http://localhost:3000/techStack", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(queryParams) });
+      const response = await fetch(`${baseURL}/techStack`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(queryParams) });
       const data = await response.json()
 
       if (data.status == 200) {
