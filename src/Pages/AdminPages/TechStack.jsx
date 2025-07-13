@@ -8,6 +8,8 @@ const TechStack = () => {
   const [newTech, setNewTech] = useState("");
   const userIDFE = useSelector((state) => state.user.userID);
   const [change, setChange] = useState(false)
+    const baseURL = import.meta.env.VITE_API_BASE_URL
+
 
   // const updateLD = ()=>{
   //   setData([...data,newTech])
@@ -68,7 +70,7 @@ const TechStack = () => {
     e.preventDefault();
     try {
       const queryParams = new URLSearchParams({ _id: ID }).toString();
-      const response = await fetch(`http://localhost:3000/techStack?${queryParams}`, { method: "DELETE" });
+      const response = await fetch(`${baseURL}/techStack?${queryParams}`, { method: "DELETE" });
       const result = await response.json();
       const values = result.techStacks;
       setData(values);
