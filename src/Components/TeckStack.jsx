@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 const TechStack = () => {
     const [data, setData]= useState([])
     const userIDFE = useSelector((state)=>state.user.userID)
-      const baseURL = "https://suprithstudiobe.onrender.com";
+    const baseURL = import.meta.env.VITE_API_BASE_URL
 
 
     const fetchTechStack = async () => {

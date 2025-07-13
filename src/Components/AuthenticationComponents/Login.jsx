@@ -5,7 +5,7 @@ import { adduser, adduseremail, adduserId } from "../../store/userSlice";
 
 const Login = () => {
 
-  const baseURL = "https://suprithstudiobe.onrender.com";
+  const baseURL = import.meta.env.VITE_API_BASE_URL
   const [login, setlogin] = useState({
     name: "",
     email: "",
