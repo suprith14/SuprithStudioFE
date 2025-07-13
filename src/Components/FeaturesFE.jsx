@@ -11,7 +11,7 @@ const Features = () => {
   const fetchTechStack = async () => {
     try {
       const queryParams = new URLSearchParams({ userID: userIDFE }).toString();
-      const response = await fetch(`http://localhost:3000/featurefelist?${queryParams}`, { method: "GET" });
+      const response = await fetch(`/api/featurefelist?${queryParams}`, { method: "GET" });
       const result = await response.json();
       const values = result.result;
       setData(values);

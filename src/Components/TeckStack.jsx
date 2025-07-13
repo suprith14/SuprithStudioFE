@@ -10,7 +10,7 @@ const TechStack = () => {
     const fetchTechStack = async () => {
       try {
         const queryParams = new URLSearchParams({ userID: userIDFE }).toString();
-        const response = await fetch(`http://localhost:3000/techStack?${queryParams}`, { method: "GET" });
+        const response = await fetch(`/api/techStack?${queryParams}`, { method: "GET" });
         const result = await response.json();
         const values = result.techStacks;
         setData(values);
