@@ -37,8 +37,9 @@ const Login = () => {
     try {
       const queryParams = new URLSearchParams({ email: login.email, password: login.password }).toString(); // Convert user object to query string
       console.log("queryParams", queryParams);
+      const response = await fetch(`/api/login?${queryParams}`, { method: "GET" });
       // const response = await fetch(`http://localhost:3000/login?${queryParams}`, { method: "GET" });
-      const response = await fetch(`https://suprithstudiobe.onrender.com/login?${queryParams}`, { method: "GET" });
+      // const response = await fetch(`https://suprithstudiobe.onrender.com/login?${queryParams}`, { method: "GET" });
       const data = await response.json();
       if (data.status == 200) {
         // console.log("login successfull :", data)
@@ -67,8 +68,8 @@ const Login = () => {
         confirmPassword: login.confirmPassword,
         phone: login.phone,
       };
-      // const response = await fetch("http://localhost:3000/signup", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(queryParams) });
-      const response = await fetch("https://suprithstudiobe.onrender.com/signup", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(queryParams) });
+      const response = await fetch("http://localhost:3000/signup", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(queryParams) });
+      // const response = await fetch("https://suprithstudiobe.onrender.com/signup", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(queryParams) });
       const data = await response.json();
 
       console.log("signup response" + JSON.stringify(response))

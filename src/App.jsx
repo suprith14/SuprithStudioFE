@@ -8,11 +8,13 @@ import TechStack from "./Pages/AdminPages/TechStack";
 import FeaturesBE from "./Pages/AdminPages/FeaturesBE";
 import Protected from "./Components/Protected";
 import UserDetails from "./Pages/AdminPages/UserDetails";
+import Features from "./Pages/Features";
 
 function App() {
   const router = createBrowserRouter([
     { path: "/", element: <LoginPage /> },
     { path: "/homepage", element:<Protected element={<HomePage />}/> },
+    { path: "/features", element:<Protected element={<Features />}/> },
     { path: "/adminpage", element: <Protected element={<AdminPage /> }/>,
       children: [
         {
