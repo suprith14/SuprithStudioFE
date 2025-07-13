@@ -6,11 +6,13 @@ import { useSelector } from 'react-redux';
 const TechStack = () => {
     const [data, setData]= useState([])
     const userIDFE = useSelector((state)=>state.user.userID)
+      const baseURL = "https://suprithstudiobe.onrender.com";
+
 
     const fetchTechStack = async () => {
       try {
         const queryParams = new URLSearchParams({ userID: userIDFE }).toString();
-        const response = await fetch(`/api/techStack?${queryParams}`, { method: "GET" });
+        const response = await fetch(`${baseURL}/techStack?${queryParams}`, { method: "GET" });
         const result = await response.json();
         const values = result.techStacks;
         setData(values);

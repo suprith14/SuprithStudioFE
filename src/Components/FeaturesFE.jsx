@@ -7,11 +7,13 @@ const Features = () => {
 
   const [data, setData] = useState([{}])
   const userIDFE = useSelector((state) => state.user.userID)
+    const baseURL = "https://suprithstudiobe.onrender.com";
+
 
   const fetchTechStack = async () => {
     try {
       const queryParams = new URLSearchParams({ userID: userIDFE }).toString();
-      const response = await fetch(`/api/featurefelist?${queryParams}`, { method: "GET" });
+      const response = await fetch(`${baseURL}/featurefelist?${queryParams}`, { method: "GET" });
       const result = await response.json();
       const values = result.result;
       setData(values);
