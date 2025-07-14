@@ -7,5 +7,5 @@ export const HeaderActionList = [
   { name: "Blog", url: "/blog" },
   { name: "Guide", url: "/blog" },
   { name: "Admin", url: "/adminpage" },
-  // { name: "login", url: "/login" },
+  { name: "Job Tracker", url: "/jobtracker" },
 ];

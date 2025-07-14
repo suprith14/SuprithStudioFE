@@ -9,23 +9,26 @@ import FeaturesBE from "./Pages/AdminPages/FeaturesBE";
 import Protected from "./Components/Protected";
 import UserDetails from "./Pages/AdminPages/UserDetails";
 import Features from "./Pages/Features";
+import JobTracker from "./Pages/JobTracker/JobTracker";
 
 function App() {
   const router = createBrowserRouter([
     { path: "/", element: <HomePage /> },
     { path: "/login", element: <LoginPage /> },
-    { path: "/homepage", element:<Protected element={<HomePage />}/> },
-    { path: "/features", element:<Protected element={<Features />}/> },
-    { path: "/adminpage", element: <Protected element={<AdminPage /> }/>,
+    { path: "/homepage", element: <Protected element={<HomePage />} /> },
+    { path: "/features", element: <Protected element={<Features />} /> },
+    { path: "/jobtracker", element: <Protected element={<JobTracker />} /> },
+    {
+      path: "/adminpage", element: <Protected element={<AdminPage />} />,
       children: [
         {
           index: true, // This makes it the default route
           element: <TechStack />
         },
-        {path: "featuresfe", element: <FeaturesFE />},
-        {path: "featuresbe", element: <FeaturesBE />}, // Assuming FeaturesBE is similar to FeaturesFE
-        {path: "techstack", element: <TechStack />}, // Assuming TechStack is similar to FeaturesFE
-        {path: "userdetails", element: <UserDetails />}, // Assuming TechStack is similar to FeaturesFE
+        { path: "featuresfe", element: <FeaturesFE /> },
+        { path: "featuresbe", element: <FeaturesBE /> }, // Assuming FeaturesBE is similar to FeaturesFE
+        { path: "techstack", element: <TechStack /> }, // Assuming TechStack is similar to FeaturesFE
+        { path: "userdetails", element: <UserDetails /> }, // Assuming TechStack is similar to FeaturesFE
       ]
 
     },
