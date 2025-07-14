@@ -52,8 +52,8 @@ const LinksInHeader = () => {
             </span>
           </Link>
         ))}
-        <div className="font-bold flex flex-row w-min mr-5" > {username ? username : ""}
-          {username ? <img onClick={username ? logout : () => { }} src={logoutimg} className="w-5 h-5" /> : "Login"}
+        <div className="font-bold flex flex-row w-min mr-5" > {username ? username : <Link to='/login'S>{"Login"}</Link>}
+          {username ? <img onClick={username ? logout : () => { }} src={logoutimg} className="w-5 h-5" /> : ""}
         </div>
       </div>
       {isMobile && (<div className="hover:bg-blue-300 px-5 py-2" onClick={() => { setIsOpen(!isOpen) }}>|||</div>)}
@@ -66,8 +66,8 @@ const LinksInHeader = () => {
               </span>
             </Link>
           ))}
-          <span className="font-bold" > {username ? username : ""}</span>
-          <span className="font-bold cursor-pointer p-1 rounded hover:bg-slate-500" onClick={username ? logout : () => { }}>{username ? <img src={logoutimg} className="w-8 h-8" /> : "Login"}</span>
+          <span className="font-bold" > {username ? username : <Link to='/login'S>{"Login"}</Link>}</span>
+          <span className="font-bold cursor-pointer p-1 rounded hover:bg-slate-500" onClick={username ? logout : () => { }}>{username ? <img src={logoutimg} className="w-8 h-8" /> : ""}</span>
 
         </div>
       )}

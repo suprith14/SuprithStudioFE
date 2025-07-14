@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { techStackList } from '../../Utilis/TeckStackList'
 import { useSelector } from 'react-redux';
 
@@ -31,9 +31,12 @@ const TechStack = () => {
       console.error('Error fetching tech stack:', error);
     }
   };
-  useEffect(() => {
+  // useEffect(() => {
+  //   fetchTechStack();
+  // }, [change])
+  useLayoutEffect(() => {
     fetchTechStack();
-  }, [change])
+  }, [change]);
 
 
   const handleonChange = (e) => {
@@ -42,8 +45,9 @@ const TechStack = () => {
 
   const handleAddTechStack = async (e) => {
     e.preventDefault();
-    setChange(!change);
-    setNewTech("")
+    
+    console.log("setchange", change)
+    
     try {
       const queryParams = {
         teckName: newTech,
@@ -54,7 +58,9 @@ const TechStack = () => {
 
       if (data.status == 200) {
         console.log("New Tech Stack Added:", newTech);
-        alert(`New Tech Stack Added: ${newTech}`);
+        setChange(!change);
+        setNewTech("")
+        // alert(`New Tech Stack Added: ${newTech}`);
 
       } else {
         alert(JSON.stringify(data.error));

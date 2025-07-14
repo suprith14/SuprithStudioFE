@@ -124,8 +124,8 @@ const Login = () => {
           </>
         )}
 
-        <label id="email" className="block text-gray-700 text-sm font-semibold">
-          Email :{login.email}
+        <label id="email" className="block text-blue-700 text-sm font-semibold">
+          Email :{login.email} <i className="text-green-500">suprithcd@gmail.com</i> 
         </label>
         <input
           type="text"
@@ -139,9 +139,9 @@ const Login = () => {
 
         <label
           id="password"
-          className="block text-gray-700 text-sm font-semibold"
+          className="block text-blue-700 text-sm font-semibold"
         >
-          Password :{login.password}
+          Password :{login.password} <i className="text-green-500">1234</i> 
         </label>
         <input
           type="password"

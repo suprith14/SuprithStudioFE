@@ -12,7 +12,8 @@ import Features from "./Pages/Features";
 
 function App() {
   const router = createBrowserRouter([
-    { path: "/", element: <LoginPage /> },
+    { path: "/", element: <HomePage /> },
+    { path: "/login", element: <LoginPage /> },
     { path: "/homepage", element:<Protected element={<HomePage />}/> },
     { path: "/features", element:<Protected element={<Features />}/> },
     { path: "/adminpage", element: <Protected element={<AdminPage /> }/>,

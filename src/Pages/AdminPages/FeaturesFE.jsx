@@ -7,7 +7,7 @@ const FeaturesFE = () => {
   const [newdescription, setDescription] = useState("");
   const userIDFE = useSelector((state) => state.user.userID);
   const [change, setChange] = useState(false)
-    const baseURL = import.meta.env.VITE_API_BASE_URL
+  const baseURL = import.meta.env.VITE_API_BASE_URL
 
 
 
@@ -41,9 +41,8 @@ const FeaturesFE = () => {
 
   const handleAddNewDescription = async (e) => {
     e.preventDefault();
-    setChange(!change);
     console.log("change :", change)
-    setDescription("")
+
     try {
       const queryParams = {
         userID: userIDFE,
@@ -56,8 +55,9 @@ const FeaturesFE = () => {
       if (data.status == 200) {
         console.log("New Tech Stack Added:", newdescription);
         setChange(!change);
+        setDescription("")
 
-        alert(`New Tech Stack Added: ${newdescription}`);
+        // alert(`New Tech Stack Added: ${newdescription}`);
 
       } else {
         alert(JSON.stringify(data.error));
@@ -67,7 +67,7 @@ const FeaturesFE = () => {
     }
   }
 
-   const deleteFEdescription = async (ID, e) => {
+  const deleteFEdescription = async (ID, e) => {
     e.preventDefault();
     try {
       const queryParams = new URLSearchParams({ _id: ID }).toString();
@@ -75,7 +75,7 @@ const FeaturesFE = () => {
       const result = await response.json();
       const values = result.result;
 
-      console.log("fe del ",result)
+      console.log("fe del ", result)
       fetchTechStack();
       setChange(!change);
 
